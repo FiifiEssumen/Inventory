@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <!-- Main Theme (Import materialisecss) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </head>
+
+
+      <!-- Change to reflect css styling  -->
+      <!-- <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+
+</nav>
+<div class="container">
+<nav class="navbar navbar-inverse ">
+
+ <!-- <Navigation!> -->
+   <ul>  
+          <li> <a class='nav navbar-left' href="{% url 'about'%}">ABOUT</a></li>
+          <li> <a class='nav navbar-left' href="{% url 'login' %}">LOGIN</a> </li>
+          <li> <a class='nav navbar-left' href="{% url 'signup' %}">SIGNUP</a> </li>         
+           <!-- the logout used to be signup -->
+    </ul>
+
+
+</div>
+</div>
+
+      {% if user.is_authenticated %}
+      <ul class="nav navbar-nav navbar-right">
+<!-- this navbar is responsible for add inventory at the far right ,,edit -->
+        <li> <a class='nav navbar-right' href="{% url 'add_Inventory' %}">Add Inventory</a> </li>
+        <!-- <li> <a class='nav navbar-left' href="{% url 'add_Inventory' %}">Add Inventory</a> </li> -->
+        Hello {{ user.username }}, <a class='nav navbar-right' href="{% url 'logout' %}">logout</a>
+      </ul>
+      {% endif %}
+    
+
+
+  </div>
+  <!-- </nav> -->
+  <div class="content container">
+
+                {% block content %}
+                {% endblock %}
+
+
+    </div>
+  </head>
+  <body>
+
+  </body>
+</html>

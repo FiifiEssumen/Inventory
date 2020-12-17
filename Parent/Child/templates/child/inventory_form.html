@@ -1,0 +1,17 @@
+{% extends "Child/base.html" %}
+
+
+{% block title %}Add Inventory{% endblock %}
+{% block content %}
+<!-- { %  load bootsratp 4 % } -->
+    <h3>Add Inventory</h3>
+    <div class="container">
+      <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type='submit' class="waves-effect waves light btn-small">Add</button>
+        <!-- <input type="submit" class="btn btn-primary" value="Submit"> -->
+
+      </form>
+    </div>
+  {% endblock %}
